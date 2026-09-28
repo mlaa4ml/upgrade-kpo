@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Презентация · Расчётная compliance и КПО «Восток»</title>
+<style>
+:root{--ink:#17221f;--muted:#63706b;--paper:#f4f1e8;--card:#fffdf7;--line:#d8ddd4;--acid:#d7f35e;--rust:#e86643;--blue:#315b75;--night:#17221f}
+*{box-sizing:border-box}
+body{margin:0;background:#e7e5dc;color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.08;margin:0 0 14px;letter-spacing:-.02em}
+.deck{max-width:1180px;margin:auto;padding:24px}
+.slide{background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 40px rgba(25,38,31,.10);padding:52px 56px;margin:0 0 26px;min-height:640px;display:flex;flex-direction:column;justify-content:center;page-break-after:always;break-after:page;position:relative}
+.slide .num{position:absolute;right:26px;bottom:18px;font-size:.78rem;color:var(--muted);letter-spacing:.14em}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.slide h1{font-size:clamp(2.2rem,5vw,4rem)}
+.slide h2{font-size:clamp(1.7rem,3.4vw,2.6rem)}
+.lede{font-size:1.15rem;max-width:74ch;color:#25332e}
+ul{padding-left:22px;margin:12px 0}
+li{margin:9px 0;max-width:80ch}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.card{background:var(--card);border:1px solid var(--line);padding:20px}
+.card.dark{background:var(--night);color:#f5f5e9;border-color:var(--night)}
+.card.lime{background:var(--acid);border-color:var(--acid)}
+.card.rust{background:var(--rust);color:#fff;border-color:var(--rust)}
+.metric{font-family:Georgia,serif;font-size:2.7rem;line-height:1;color:var(--blue);margin:6px 0}
+.card.dark .metric{color:var(--acid)}
+.small{font-size:.85rem;color:var(--muted)}
+.card.dark .small,.card.rust .small{color:#dfe7dc}
+table{border-collapse:collapse;width:100%;margin-top:14px;font-size:.92rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:#eaeee6;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px}
+.steps .step{border-top:4px solid var(--rust);border-right:1px solid var(--line);background:var(--card);padding:16px}
+.steps .step:last-child{border-right:0}
+.steps .n{font:700 1.5rem Georgia,serif;color:var(--rust);display:block}
+.ask{border-left:6px solid var(--rust);background:#fff4ee;padding:14px 18px;margin:10px 0}
+.ask b{color:#a8341a}
+.note{font-size:.82rem;color:var(--muted);margin-top:18px;max-width:80ch}
+.toolbar{max-width:1180px;margin:auto;padding:16px 24px 0;font-size:.85rem;color:var(--muted)}
+.toolbar a{color:var(--blue)}
+@media print{body{background:#fff}.toolbar{display:none}.deck{padding:0;max-width:none}.slide{box-shadow:none;border:0;margin:0;min-height:100vh;padding:40px}@page{size:A4 landscape;margin:10mm}}
+@media(max-width:820px){.grid2,.grid3,.steps{grid-template-columns:1fr}.slide{padding:30px 22px;min-height:auto}}
+</style>
+</head>
+<body>
+<div class="toolbar">Презентация на 8 слайдов. Для PDF: печать браузера → «Сохранить как PDF», ландшафтная ориентация, фоновая графика включена. <a href="proposal.md">Аналитическая записка</a> · <a href="appeal.md">Проект обращения</a> · <a href="../index.html">Публичная страница</a></div>
+<div class="deck">
+
+<section class="slide">
+  <div class="eyebrow">Аналитическая работа · обращение в органы власти</div>
+  <h1>После сортировки<br>остаётся полигон</h1>
+  <p class="lede">Почему объект обращения с отходами может быть полностью законным на бумаге и одновременно источником сотен зафиксированных превышений ПДК. Кейс: КПО «Восток», г. о. Егорьевск, Московская область.</p>
+  <div class="grid3">
+    <div class="card"><b>Что это</b><p class="small">Разбор системного дефекта регулирования, а не жалоба на один объект.</p></div>
+    <div class="card"><b>Чего добиваемся</b><p class="small">Межведомственного поручения: правила допуска должны сверяться с фактическими измерениями.</p></div>
+    <div class="card"><b>Чего не требуем</b><p class="small">Закрытия объекта. Требование — изменить условия работы и правила.</p></div>
+  </div>
+  <div class="num">1 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Диагноз</div>
+  <h2>«Расчётная compliance»: соответствие процедуре вместо соответствия результату</h2>
+  <table>
+    <tr><th>Проверяется сейчас</th><th>Не проверяется автоматически</th></tr>
+    <tr><td>правильность методики расчёта рассеивания</td><td>сходимость модели с измерениями через 3–5 лет эксплуатации</td></tr>
+    <tr><td>комплектность материалов ОВОС</td><td>достоверность исходных данных ОВОС</td></tr>
+    <tr><td>наличие положительного заключения ГЭЭ</td><td>актуальность заключения при изменении состава отходов</td></tr>
+    <tr><td>установленный размер СЗЗ</td><td>необходимость расширения СЗЗ при устойчивых превышениях за её границей</td></tr>
+    <tr><td>факт оказания услуги регоператором</td><td>доля отходов, фактически возвращённая в оборот</td></tr>
+  </table>
+  <p class="note">Вывод: ошибка в исходной модели не запускает пересмотр модели. Её можно оспорить только жалобой, проверкой или иском — ресурсом, которого у жителей заведомо меньше, чем у оператора.</p>
+  <div class="num">2 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Национальные цели против фактической траектории</div>
+  <h2>Один год — два разных отчёта</h2>
+  <div class="grid3">
+    <div class="card lime"><b>Цель 2030</b><div class="metric">100%</div>сортировки ТКО<p class="small">≤50% захоронения, ≥25% вовлечения в оборот.</p></div>
+    <div class="card"><b>Форма 2-ТП, 2024</b><div class="metric">53,3% / 8,2%</div>обработка / утилизация<p class="small">При 85,2% захоронения и объёме около 47,5 млн тонн.</p></div>
+    <div class="card dark"><b>Публичное заявление, 2024</b><div class="metric">56% / 14%</div>обработка / утилизация<p class="small">Те же отходы, тот же год, другие цифры.</p></div>
+  </div>
+  <div class="ask"><b>Следствие.</b> Пока у показателя нет единого определения и единого знаменателя, национальную цель можно улучшать в отчётности, не меняя материальный поток.</div>
+  <div class="num">3 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Кейс</div>
+  <h2>КПО «Восток»: наложение трёх решений, а не авария</h2>
+  <div class="grid2">
+    <div class="card"><b>Конфигурация</b>
+      <ul>
+        <li>д. Поцелуево, г. о. Егорьевск; СЗЗ по публикациям — 1 км, ближайший населённый пункт — около 3 км;</li>
+        <li>проектировщик указывает 600 тыс. т/год приёма несортированных отходов;</li>
+        <li>поставщик оборудования — 1,2 млн т/год после второй очереди;</li>
+        <li>заявленный баланс: 30% органики в техногрунт, 25% RDF, 25% «хвост» на карту.</li>
+      </ul>
+      <p class="small">Публичный проект обязан объяснить, что означает каждая цифра: принято, отсортировано, реализовано как сырьё, захоронено.</p>
+    </div>
+    <div class="card rust"><b>Что зафиксировал суд</b>
+      <ul>
+        <li>дело № 2-2109/2024 (решение 25.12.2024): превышения по сероводороду в населённых пунктах зоны влияния и за её пределами, превышение норматива по бензолу на неорганизованных источниках;</li>
+        <li>обязанность смонтировать активную дегазацию, исключить превышения маркерных веществ, обеспечить очистку сточных вод;</li>
+        <li>дело № А41-75398/2025: нарушение проектной документации и ГЭЭ создаёт угрозу жизни и здоровью граждан;</li>
+        <li>исполнительные документы выданы; сведений о полном исполнении в открытом доступе нет.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Границы доказанного: решения публикуют сводные результаты измерений, но не первичные протоколы. Паспорт контрольного мероприятия в ФГИС ЕРКНМ независимо не извлечён. Эти пункты вынесены в запросы, а не выданы за установленные факты.</p>
+  <div class="num">4 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Механика дефекта</div>
+  <h2>Деньги, ответственность и риск движутся в разные стороны</h2>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><b>Допуск</b><p class="small">ОВОС и расчёт рассеивания → расчётная СЗЗ → заключение ГЭЭ. Модель зависит от исходных данных, которые после запуска не верифицируются.</p></div>
+    <div class="step"><span class="n">02</span><b>Эксплуатация</b><p class="small">Непрерывные посты фиксируют превышения, но их данные не имеют автоматических правовых последствий. Первичные протоколы недоступны публично.</p></div>
+    <div class="step"><span class="n">03</span><b>Расширение</b><p class="small">Обоснование считает тот же проектировщик. Накопленная история превышений в расчёт не входит.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><b>Кто получает деньги</b><ul><li>единый тариф регоператора от массы потока;</li><li>возврат инвестиций;</li><li>плата за транспортирование и обработку.</li></ul></div>
+    <div class="card dark"><b>Кто получает риск</b><ul><li>запах и выбросы в жилой застройке;</li><li>транспортная нагрузка на дороги;</li><li>снижение стоимости жилья;</li><li>издержки на жалобы, проверки и суды.</li></ul></div>
+  </div>
+  <div class="num">5 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Почему не решается</div>
+  <h2>Каждый орган прав в своей части — дефект живёт на стыке</h2>
+  <table>
+    <tr><th>Элемент дефекта</th><th>Орган</th><th>Инструмент</th></tr>
+    <tr><td>Пересмотр СЗЗ по натурным измерениям</td><td>Роспотребнадзор</td><td>решение об изменении СЗЗ (ПП РФ № 222)</td></tr>
+    <tr><td>Соблюдение лицензии и проектной документации</td><td>Росприроднадзор</td><td>контрольное мероприятие, предписание</td></tr>
+    <tr><td>Единая методика учёта обработки и утилизации</td><td>Минприроды, Росстат</td><td>нормативный акт, форма отчётности</td></tr>
+    <tr><td>Тариф, привязанный к результату</td><td>ФАС России</td><td>методические указания</td></tr>
+    <tr><td>Решения о расширении мощности</td><td>субъект РФ, ППК РЭО</td><td>территориальная схема, инвестпрограмма</td></tr>
+    <tr><td>Исполнение судебных решений</td><td>ФССП, прокуратура</td><td>исполнительное производство, надзор</td></tr>
+  </table>
+  <div class="ask"><b>Отсюда адресат.</b> Нужно межведомственное поручение: ни один орган не может изменить правила за пределами своей компетенции.</div>
+  <div class="num">6 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Предложение</div>
+  <h2>Шесть просьб, каждую из которых можно проверить</h2>
+  <div class="grid2">
+    <div class="card"><b>П-1.</b> Прокуратуре и ФССП — проверить фактическое исполнение судебных актов по делам № 2-2109/2024 и № А41-75398/2025.</div>
+    <div class="card"><b>П-2.</b> Роспотребнадзору и Росприроднадзору — внеплановые инструментальные замеры на границе СЗЗ и в населённых пунктах с публикацией протоколов.</div>
+    <div class="card lime"><b>П-3.</b> Норма автоматического пересмотра: подтверждённые систематические превышения за границей СЗЗ влекут обязательный пересмотр СЗЗ и проектной документации без отдельного иска.</div>
+    <div class="card"><b>П-4.</b> ФАС России — компонент тарифа, зависящий от подтверждённой утилизации и снижения массы захоронения.</div>
+    <div class="card"><b>П-5.</b> Минприроды и Росстату — единая методика учёта с раскрытием показателей по каждому объекту.</div>
+    <div class="card dark"><b>П-6.</b> Публикация данных мониторинга и первичных протоколов замеров в машиночитаемом виде, с калибровками и окнами недоступности приборов.</div>
+  </div>
+  <div class="num">7 / 8</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Как добиться начала работы</div>
+  <h2>Порядок действий и критерий «ответ по существу»</h2>
+  <div class="grid2">
+    <div class="card"><b>Шаги</b>
+      <ul>
+        <li>опубликовать страницу проекта и записку с источниками;</li>
+        <li>подать обращение через letters.kremlin.ru и продублировать почтой с уведомлением;</li>
+        <li>параллельно направить обращения в Генеральную прокуратуру, Росприроднадзор, Роспотребнадзор и депутатам, указав номер основного обращения;</li>
+        <li>собрать подписи жителей как приложение к обращению;</li>
+        <li>вести матрицу контроля ответов из раздела 8 записки.</li>
+      </ul>
+    </div>
+    <div class="card rust"><b>Ответ формальный, если</b>
+      <ul>
+        <li>обращение просто переадресовано без поручения по существу;</li>
+        <li>сообщено «нарушений не выявлено» без приложения протоколов замеров;</li>
+        <li>ответ касается только объекта и игнорирует предложения об изменении правил.</li>
+      </ul>
+      <p class="small">Формальный ответ обжалуется в вышестоящий орган или в суд; отказ в информации о состоянии окружающей среды — со ссылкой на ст. 42 Конституции РФ и ст. 11 Федерального закона № 7-ФЗ.</p>
+    </div>
+  </div>
+  <div class="ask"><b>Одна фраза для решения.</b> Проблема не в том, что кто-то ошибся в расчёте, — проблема в том, что ошибка в расчёте не запускает автоматический пересмотр проекта и ответственность.</div>
+  <div class="num">8 / 8</div>
+</section>
+
+</div>
+</body>
+</html>
